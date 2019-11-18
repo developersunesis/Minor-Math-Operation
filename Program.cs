@@ -8,10 +8,13 @@ namespace Minor_Math_Operation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Checks if 5 is a prime number
             Console.WriteLine(isPrimeNumber(5));
+            
+            // This function is to find the prime numbers in a list of int numbers
             findPrimeNumbers(new List<int> { 1, 2, 3, 4, 5 });
 
+            // Test: findLCM of a given list of numbers
             Console.WriteLine(findLCM(new List<int> { 16, 18, 20}));
 
             List<int> l = new List<int> { 16, 18, 20 };
@@ -19,17 +22,22 @@ namespace Minor_Math_Operation
             Console.WriteLine(nextMaxNumber(l)); // 20
             Console.WriteLine(nextMaxNumber(l)); // 18
 
+            // Test: findHCF of a given list of numbers
             Console.WriteLine("HCF : " + findHCF(new List<int> { 9, 81, 27 }));
         }
 
+        // Function to constrain the size of argument of the list numbers 
         public static Boolean isListGreaterThan10(List<int> param)
         {
             return param.Count > 10;
         }
 
+        // Return the state if a number is a prime number or not
         public static Boolean isPrimeNumber(int param)
         {
             bool result = true;
+            // loop from number 2 and check if the param is divisible by any number
+            // with no remainder less than parm
             for (int i = 2; i < param; i++)
             {
                 if ((param % i) == 0)
@@ -42,9 +50,14 @@ namespace Minor_Math_Operation
             return result;
         }
 
+        // Find the prime numbers in a list of numbers
+        // return new list of prime numbers
         public static List<int> findPrimeNumbers(List<int> param)
         {
             List<int> primeNumber = new List<int>();
+            // Constrain the size of the param to 10 items
+            // This can be removed. It was used sequel to the assessment requiement
+            
             if (isListGreaterThan10(param))
             {
                 Console.WriteLine("Total number of items in the list cannot be greater than 10.");
@@ -63,6 +76,7 @@ namespace Minor_Math_Operation
             return primeNumber;
         }
 
+        // This function enumerates all the multiples of a give number
         public static List<int> enumerateMultiplesOf(int number)
         {
             List<int> multiples = new List<int>();
@@ -77,14 +91,19 @@ namespace Minor_Math_Operation
                 } 
             }
 
+            // The multiples are been sorted from the least to the most
             multiples.Sort();
 
+            // Returns a list of multiples
             return multiples;
         }
 
+        // This function finds the LCM of a given list of numbers
         public static int findLCM(List<int> param)
         {
             ArrayList multiplesOfAllNumbers = new ArrayList();
+            
+            // Map multiples of each numbers in the param to a dictionary
             IDictionary<int, int> dict = new Dictionary<int, int>();
 
             double result = 1;
@@ -127,6 +146,7 @@ namespace Minor_Math_Operation
             return (int) result;
         }
 
+        // Find the maximum number in a list of numbers
         public static int maxNumber(List<int> param)
         {
             int result = 0;
@@ -135,6 +155,7 @@ namespace Minor_Math_Operation
                 Console.WriteLine("Total number of items in the list cannot be greater than 10.");
                 return -1;
             }
+            
             foreach (int number in param)
             {
                 result = (number > result) ? number : result;
@@ -143,6 +164,7 @@ namespace Minor_Math_Operation
             return result;
         }
 
+        // Find the next maximum number in a given list of numbers
         public static int nextMaxNumber(List<int> param)
         {
             int result = 0;
@@ -159,6 +181,7 @@ namespace Minor_Math_Operation
             return result;
         }
 
+        // Find the HCF of a given list of numbers
         public static int findHCF(List<int> param)
         {
             int result = 0;
