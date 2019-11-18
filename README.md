@@ -4,7 +4,8 @@ This class basically performs Lowest Common Multiples (L.C.M), Highest Common Fa
 The class also has functions to find the multiples of and factors of a given number
 
 # Test
-``
+
+
     static void Main(string[] args)
         {
             // Checks if 5 is a prime number
@@ -24,4 +25,5 @@ The class also has functions to find the multiples of and factors of a given num
             // Test: findHCF of a given list of numbers
             Console.WriteLine("HCF : " + findHCF(new List<int> { 9, 81, 27 }));
         }
-``
+        
+
